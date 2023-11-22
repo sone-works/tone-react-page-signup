@@ -21,7 +21,7 @@ export default function UserInfoBox() {
   const api = new ToneApi()
 
   return (
-    <Box additionalClasses="w-full">
+    <Box additionalClasses="bg-white w-full">
       <Form className="py-2" onSubmit={() => registerUser()}>
         <Input
           label="display name"

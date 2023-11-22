@@ -20,7 +20,7 @@ export default function EmailBox({
   const api = new ToneApi()
 
   return (
-    <Box additionalClasses="w-full">
+    <Box additionalClasses="bg-white w-full">
       <h3 className="font-header text-3xl">Sign Up</h3>
       <p className="font-content my-2">
         Enter your email below to receive a verfication code.

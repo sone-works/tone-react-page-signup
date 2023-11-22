@@ -11,7 +11,7 @@ export default function SignupPage() {
   const [current, setCurrent] = useState<number>(0)
 
   return (
-    <Page>
+    <Page additionalClasses="bg-[#F8F8F8]">
       <Carousel
         className="flex h-full items-center justify-center w-full"
         current={current}

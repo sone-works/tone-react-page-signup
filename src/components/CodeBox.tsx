@@ -16,7 +16,7 @@ export default function CodeBox({ setCurrent, email }: CodeBoxProps) {
   const api = new ToneApi()
 
   return (
-    <Box additionalClasses="w-full">
+    <Box additionalClasses="bg-white w-full">
       <h3 className="font-header text-3xl">Verification code</h3>
       <p className="font-content my-2">
         Fill in the code received in your email to verify your e-mail address.
