@@ -16,6 +16,7 @@ export default function EmailBox({
   setEmail,
 }: EmailBoxProps) {
   const [isLoading, setLoading] = useState<boolean>(false)
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   const api = new ToneApi()
 
@@ -31,6 +32,8 @@ export default function EmailBox({
           className="py-2"
           value={email}
           setValue={setEmail}
+          isInvalid={errorMessage ? true : false}
+          errorMessage={errorMessage}
         />
         <Button
           additionalClasses="w-full my-2 bg-[#EEFF00]"
@@ -58,7 +61,10 @@ export default function EmailBox({
           })
       )
       .catch((error) => {
-        console.log({ error })
+        if ((error.message = 'DATABASE_ERROR')) {
+          setErrorMessage('E-mail address is already in use.')
+        }
+
         setLoading(false)
       })
   }
