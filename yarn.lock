@@ -2089,10 +2089,10 @@
   resolved "https://registry.yarnpkg.com/@sone-dao/sone-react-utils/-/sone-react-utils-1.0.1.tgz#81da4c7e8c83115b66e4b4b875f6e77554770328"
   integrity sha512-48hho0n41lqMY5NByAqnMPy11vVN5xXOYwTapdOvgRHVtVZVboA5U/zRJcLEzbvTN/P8w6gzCuqXfgh/xyTHiA==
 
-"@sone-dao/tone-react-api@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-api/-/tone-react-api-2.0.0.tgz#70417be06c334ebc03c87a95a053a6b8738a88d8"
-  integrity sha512-uc0L+HlFggmp98zx5h0NInvYN+hKzUuDK3oRcCpcamfYwXZ8Dh4n8VIsY3tU/Pna3T0gwXoC0zehZDNJ8BBYPg==
+"@sone-dao/tone-react-api@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-api/-/tone-react-api-2.0.1.tgz#7d1a2010a42511336599699a1e36fdeb3c0fe950"
+  integrity sha512-iMZjuqnNLavB2xVvKx1hJ7ubQ6Bwy5oIT85eB3jqcMJHf8WEjX9dRYA0ViMap9nuA3KtTUxI6J/FCQL27AD6Mw==
   dependencies:
     "@sone-dao/sone-react-utils" "^1.0.1"
     axios "^1.4.0"
