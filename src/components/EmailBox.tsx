@@ -61,9 +61,8 @@ export default function EmailBox({
           })
       )
       .catch((error) => {
-        if ((error.message = 'DATABASE_ERROR')) {
+        error.message == 'DATABASE_ERROR' &&
           setErrorMessage('E-mail address is already in use.')
-        }
 
         setLoading(false)
       })

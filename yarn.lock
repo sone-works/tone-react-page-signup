@@ -2097,10 +2097,10 @@
     "@sone-dao/sone-react-utils" "^1.0.1"
     axios "^1.4.0"
 
-"@sone-dao/tone-react-core-ui@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.2.0.tgz#5c79882f104d43f696c6bd421c98e4342469fcf6"
-  integrity sha512-sCumHGYRywVdwsiN5KE5EIRZeeRwIVkm9pV6iew5KTW0riH5UOCeKuVvVlEYX1UohFNMSfDylYwfAICJ8fHWaQ==
+"@sone-dao/tone-react-core-ui@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.3.0.tgz#86ae3a0424a7374e0d7190cab4196d2cd3b668f5"
+  integrity sha512-pXwPxiANZFrtIJnfge29/XLqmDWTxyoztx0fDRRy2C9KeJ2gYWE+8upCoNeWfqacMKuUFBjBA44VwUU+qbbNUQ==
   dependencies:
     "@nextui-org/react" "^2.2.9"
     framer-motion "^10.16.5"
