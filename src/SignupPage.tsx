@@ -11,11 +11,8 @@ export default function SignupPage() {
   const [current, setCurrent] = useState<number>(0)
 
   return (
-    <Page additionalClasses="bg-[#F8F8F8]">
-      <Carousel
-        className="flex h-full items-center justify-center w-full"
-        current={current}
-      >
+    <Page additionalClasses="bg-[#F8F8F8] flex flex-col items-center justify-center w-full">
+      <Carousel className="max-w-4xl w-full" current={current}>
         <EmailBox setCurrent={setCurrent} email={email} setEmail={setEmail} />
         <CodeBox setCurrent={setCurrent} email={email} />
         <UserInfoBox />

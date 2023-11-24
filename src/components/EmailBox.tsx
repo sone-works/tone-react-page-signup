@@ -49,6 +49,11 @@ export default function EmailBox({
   async function sendAuthEmail() {
     setLoading(true)
 
+    if (!email) {
+      setErrorMessage('E-mail address is required to sign up.')
+      return setLoading(false)
+    }
+
     api.user
       .createUser({ email })
       .then(() =>
