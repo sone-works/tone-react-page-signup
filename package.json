@@ -17,8 +17,9 @@
     "dist"
   ],
   "dependencies": {
+    "@sone-dao/sone-react-placeholder": "^2.0.2",
     "@sone-dao/tone-react-api": "^2.0.1",
-    "@sone-dao/tone-react-core-ui": "^2.3.0"
+    "@sone-dao/tone-react-core-ui": "^2.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",

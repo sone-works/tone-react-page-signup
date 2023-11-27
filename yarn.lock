@@ -2084,6 +2084,11 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
+"@sone-dao/sone-react-placeholder@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@sone-dao/sone-react-placeholder/-/sone-react-placeholder-2.0.2.tgz#4c9ba97abc72bf18dcb4123136f35090de16b415"
+  integrity sha512-5x03ptIpZPi03zR0qWHM265WMb0bsj71RG9j3UDCA/seCmBsKYsQLxy8DIhfejcxW7W5yotoNbSWQx45DTsYzg==
+
 "@sone-dao/sone-react-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@sone-dao/sone-react-utils/-/sone-react-utils-1.0.1.tgz#81da4c7e8c83115b66e4b4b875f6e77554770328"
@@ -2097,10 +2102,10 @@
     "@sone-dao/sone-react-utils" "^1.0.1"
     axios "^1.4.0"
 
-"@sone-dao/tone-react-core-ui@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.3.0.tgz#86ae3a0424a7374e0d7190cab4196d2cd3b668f5"
-  integrity sha512-pXwPxiANZFrtIJnfge29/XLqmDWTxyoztx0fDRRy2C9KeJ2gYWE+8upCoNeWfqacMKuUFBjBA44VwUU+qbbNUQ==
+"@sone-dao/tone-react-core-ui@^2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.4.0.tgz#8d6181b6566094e18f57e7bd3f24615778859ddf"
+  integrity sha512-VUHaJY3GVXLFmhZH+Us7DtALe40fK5b/9lfgeR3MvYa0Ot2cWMWsq/V6u6eiwLFpp/LHwsBXfVRD17o64zjZRw==
   dependencies:
     "@nextui-org/react" "^2.2.9"
     framer-motion "^10.16.5"

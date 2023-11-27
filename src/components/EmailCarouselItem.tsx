@@ -1,7 +1,13 @@
 'use client'
 
 import ToneApi from '@sone-dao/tone-react-api'
-import { Box, Button, Form, Input } from '@sone-dao/tone-react-core-ui'
+import {
+  Box,
+  Button,
+  CarouselItem,
+  Form,
+  Input,
+} from '@sone-dao/tone-react-core-ui'
 import { useState } from 'react'
 
 type EmailBoxProps = {
@@ -10,7 +16,7 @@ type EmailBoxProps = {
   setEmail: Function
 }
 
-export default function EmailBox({
+export default function EmailCarouselItem({
   setCurrent,
   email,
   setEmail,
@@ -21,29 +27,31 @@ export default function EmailBox({
   const api = new ToneApi()
 
   return (
-    <Box additionalClasses="bg-white w-full">
-      <h3 className="font-header text-3xl">Sign Up</h3>
-      <p className="font-content my-2">
-        Enter your email below to receive a verfication code.
-      </p>
-      <Form className="py-2" onSubmit={() => sendAuthEmail()}>
-        <Input
-          label="e-mail"
-          className="py-2"
-          value={email}
-          setValue={setEmail}
-          isInvalid={errorMessage ? true : false}
-          errorMessage={errorMessage}
-        />
-        <Button
-          additionalClasses="w-full my-2 bg-[#EEFF00]"
-          isLoading={isLoading}
-          isSubmit
-        >
-          Sign up
-        </Button>
-      </Form>
-    </Box>
+    <CarouselItem className="flex flex-col items-center justify-center">
+      <Box additionalClasses="bg-white w-full">
+        <h3 className="font-header text-2xl">Sign Up</h3>
+        <p className="font-content my-2 text-zinc-500 font-normal text-base">
+          Enter your email below to receive a verfication code.
+        </p>
+        <Form className="py-2" onSubmit={() => sendAuthEmail()}>
+          <Input
+            label="e-mail"
+            className="py-2"
+            value={email}
+            setValue={setEmail}
+            isInvalid={errorMessage ? true : false}
+            errorMessage={errorMessage}
+          />
+          <Button
+            additionalClasses="w-full my-2 bg-[#EEFF00]"
+            isLoading={isLoading}
+            isSubmit
+          >
+            Sign up
+          </Button>
+        </Form>
+      </Box>
+    </CarouselItem>
   )
 
   async function sendAuthEmail() {
