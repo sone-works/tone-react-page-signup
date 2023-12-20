@@ -20,8 +20,9 @@
     "@sone-dao/sone-react-placeholder": "^2.0.2",
     "@sone-dao/sone-react-utils": "^1.0.1",
     "@sone-dao/tone-react-api": "^2.0.1",
-    "@sone-dao/tone-react-core-ui": "^2.8.0",
+    "@sone-dao/tone-react-core-ui": "^2.9.0",
     "@sone-dao/tone-react-debug": "^0.1.0",
+    "@sone-dao/tone-react-style-store": "^0.1.0",
     "@sone-dao/tone-react-user-store": "^0.2.0",
     "accessible-colors": "^1.0.5"
   },

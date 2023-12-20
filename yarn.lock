@@ -2109,10 +2109,10 @@
     "@sone-dao/sone-react-utils" "^1.0.1"
     axios "^1.4.0"
 
-"@sone-dao/tone-react-core-ui@^2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.8.0.tgz#de954d08ec4cb31bf8fba9e65bd9abeca70aa3c9"
-  integrity sha512-EUEUOrdgsNIhlI+e4ejxzM1aKZb0gCOID35gecF/ab6zFc2WyZI2biXsKggRdlJZAHYRv+17k+g4nXF3loUB1Q==
+"@sone-dao/tone-react-core-ui@^2.9.0":
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.9.0.tgz#841ac41461908d4858136041133bb2807649e270"
+  integrity sha512-q+vIcNse+Q5Ap23nqFaKyA1dBX1D8gt74BROVnjmhegIF6WM+matPUkSFTdX5axCT1UuqjTU7PztukQN8gk+OQ==
   dependencies:
     "@nextui-org/react" "^2.2.9"
     "@sone-dao/sone-react-utils" "^1.0.1"
@@ -2123,6 +2123,13 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-debug/-/tone-react-debug-0.1.0.tgz#e03fdcca805c882392ac775cf72e3f6ca0126a26"
   integrity sha512-ICA0PAg7+LlvUo7+dAbIqnpKsoxuI7+TdPM/1kK2/LBFpF06r0KWKmkJ+VtHZrfcYLGyB3M2HQ49CCo43z412w==
+
+"@sone-dao/tone-react-style-store@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-style-store/-/tone-react-style-store-0.1.0.tgz#0433fa5c175ba5f1533dc1fc49c876b88a42b6b9"
+  integrity sha512-P+QFhvQmpv691z/QQ0sd0NVG8fwFVMT3JyqB6L6rZTcFPbBa8ebV4hTLK2eWhJrL0kZNqPM0gR6TfH+o1o3+Hw==
+  dependencies:
+    zustand "^4.4.7"
 
 "@sone-dao/tone-react-user-store@^0.2.0":
   version "0.2.0"
