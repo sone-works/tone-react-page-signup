@@ -9,6 +9,7 @@
     "esModuleInterop": false,
     "declaration": true,
     "declarationDir": "dist/types",
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "resolveJsonModule": true
   }
 }

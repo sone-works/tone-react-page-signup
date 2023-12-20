@@ -1,26 +1,59 @@
-'use client'
-
-import { Carousel, Page } from '@sone-dao/tone-react-core-ui'
+import ToneServiceApi from '@sone-dao/tone-react-api'
+import { Carousel } from '@sone-dao/tone-react-core-ui'
+import { AppDebug } from '@sone-dao/tone-react-debug'
+import { UseStyleStore } from '@sone-dao/tone-react-style-store'
+import { UseUserStore } from '@sone-dao/tone-react-user-store'
+import Head from 'next/head'
 import { useState } from 'react'
-import CodeCarouselItem from './components/CodeCarouselItem'
-import EmailCarouselItem from './components/EmailCarouselItem'
-import UserInfoCarouselItem from './components/UserInfoBox'
+import CodeForm from './components/CodeForm'
+import EmailForm from './components/EmailForm'
+import UserForm from './components/UserForm'
 
-export default function SignupPage() {
-  const [email, setEmail] = useState<string>('')
-  const [current, setCurrent] = useState<number>(0)
+type SignupPageProps = {
+  useStyleStore: UseStyleStore
+  useUserStore: UseUserStore
+  appDebug: AppDebug
+}
+
+export default function SignupPage({
+  useStyleStore,
+  useUserStore,
+  appDebug,
+}: SignupPageProps) {
+  const [signupProgress, setSignupProgress] = useState<number>(0)
+  const [userEmail, setUserEmail] = useState<string>('')
+
+  const api = new ToneServiceApi({ api: appDebug.api, debug: appDebug.isDebug })
 
   return (
-    <Page additionalClasses="bg-[#F8F8F8] flex flex-col items-center justify-center w-full p-6">
-      <Carousel className="max-w-4xl w-full" current={current}>
-        <EmailCarouselItem
-          setCurrent={setCurrent}
-          email={email}
-          setEmail={setEmail}
-        />
-        <CodeCarouselItem setCurrent={setCurrent} email={email} />
-        <UserInfoCarouselItem />
-      </Carousel>
-    </Page>
+    <>
+      <Head>
+        <title>Tone - Signup</title>
+      </Head>
+      <main className="flex items-center justify-center bg-global h-full w-full p-4">
+        <div className="flex flex-col items-center w-full max-w-xl">
+          <span className="font-release text-global text-5xl m-4">tone</span>
+          <Carousel current={signupProgress}>
+            <EmailForm
+              userEmail={userEmail}
+              setUserEmail={setUserEmail}
+              setSignupProgress={setSignupProgress}
+              api={api}
+            />
+            <CodeForm
+              userEmail={userEmail}
+              setSignupProgress={setSignupProgress}
+              useUserStore={useUserStore}
+              api={api}
+            />
+            <UserForm
+              useStyleStore={useStyleStore}
+              useUserStore={useUserStore}
+              api={api}
+            />
+          </Carousel>
+        </div>
+      </main>
+    </>
   )
 }
