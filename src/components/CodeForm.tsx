@@ -42,8 +42,6 @@ export default function CodeForm({
       .then((response) => {
         const { user } = response
 
-        console.log('code form', user)
-
         useUserStore.setState({ isLoggedIn: true, userId: user.userId })
 
         setSignupProgress(2)

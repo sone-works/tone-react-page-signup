@@ -1,7 +1,7 @@
 import ToneApiService from '@sone-dao/tone-react-api'
 import { Avatar, Input, Textarea } from '@sone-dao/tone-react-core-ui'
 import { UseUserStore, UserAvatar } from '@sone-dao/tone-react-user-store'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 type ProfileFormProps = {
   useUserStore: UseUserStore
@@ -19,10 +19,6 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
   const avatarInput = useRef<HTMLInputElement>(null)
 
   const user = useUserStore()
-
-  useEffect(() => {
-    console.log('profile form', user)
-  }, [user])
 
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full mt-12">
@@ -114,13 +110,11 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
 
       setAvatar({ blob: file, dataURL })
 
-      console.log('Uploading avatar...')
-
       api.user
         .uploadAvatar({ file })
         .then((response) => {
           useUserStore.setState({
-            avatar,
+            avatar: { dataURL },
           })
 
           setAvatarUploading(false)

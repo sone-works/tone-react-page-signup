@@ -30,7 +30,7 @@ export default function SignupPage({
       <Head>
         <title>Tone - Signup</title>
       </Head>
-      <main className="flex items-center justify-center bg-global h-full w-full p-4">
+      <main className="flex items-center justify-center bg-global min-h-screen h-full p-4">
         <div className="flex flex-col items-center w-full max-w-xl">
           <span className="font-release text-global text-5xl m-4">tone</span>
           <Carousel current={signupProgress}>
