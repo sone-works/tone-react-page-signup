@@ -24,10 +24,6 @@ export default function EmailForm({
     email && email == verifyEmail ? setValidEmail(true) : setValidEmail(false)
   }, [email, verifyEmail])
 
-  useEffect(() => {
-    console.log({ isLoading })
-  }, [isLoading])
-
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full">
       <h2 className="font-header text-3xl">Sign Up</h2>

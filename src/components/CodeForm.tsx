@@ -25,6 +25,9 @@ export default function CodeForm({
         Enter the code sent to you just now to verify your e-mail address. We'll
         wait...
       </p>
+      <p className="font-content my-2 text-global-flipped font-content text-base">
+        Resend code stuff here.
+      </p>
       <Form className="py-2" onSubmit={(e) => verifyCode(e)}>
         <Input label="code" name="code" />
         <Button className="mt-4">Sign Up</Button>

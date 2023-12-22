@@ -20,6 +20,13 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
 
   const user = useUserStore()
 
+  const userIdDisplay =
+    user.userId.substring(0, 4) +
+    '...' +
+    user.userId.substring(user.userId.length - 4)
+
+  const profileDisplay = display || uniqueName || userIdDisplay
+
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full mt-12">
       <input
@@ -47,11 +54,9 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
         </p>
       )}
       <div className="flex flex-col items-center">
-        {display && (
-          <h2 className="font-release text-4xl text-global-flipped">
-            {display}
-          </h2>
-        )}
+        <h2 className="font-release text-4xl text-global-flipped">
+          {profileDisplay}
+        </h2>
         {location && (
           <h4 className="text-global-flipped font-header text-base">
             <i className="fa-solid fa-globe mr-2" />
@@ -61,23 +66,31 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
       </div>
       <div className="py-2 w-full">
         <Input
-          name="uniqueName"
-          label="unique name"
-          value={uniqueName}
-          setValue={setUniqueName}
-          placeholder={user.userId}
-        />
-        <p className="my-1 px-2 font-content text-xs text-global-flipped">
-          https://tone.audio/users/
-          <span className="font-header">{uniqueName || user.userId}</span>
-        </p>
-        <Input
           name="display"
           label="display name"
           className="my-2"
           value={display}
           setValue={setDisplay}
         />
+        <Input
+          name="uniqueName"
+          label="unique name"
+          value={uniqueName}
+          setValue={setUniqueName}
+          placeholder={user.userId}
+        />
+        <div className="my-1 px-2 font-content text-xs text-global-flipped">
+          <p>
+            <i className="fa-fw fa-solid fa-circle-info mr-1" />
+            We use your unique name mostly for your profile URL. If none is
+            chosen, we'll go with this long, ugly, random unique ID we generated
+            for you, gross...
+          </p>
+          <p className="my-2">
+            https://tone.audio/users/
+            <span className="font-header">{uniqueName || user.userId}</span>
+          </p>
+        </div>
         <Input
           name="location"
           label="location"

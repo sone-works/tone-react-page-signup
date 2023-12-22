@@ -34,12 +34,18 @@ export default function ToneForm({
       <h4 className="font-header text-global-flipped text-2xl mb-2">
         Your Tone
       </h4>
-      <p className="font-content text-sm mb-4">
-        These colors will represent you on the platform, and will effect the
-        sites visual appearance when interacting with pages relating to you (ie.
-        your profile, settings, etc). You can change these colors at anytime in
-        your settings.
-      </p>
+      <div className="font-content text-sm">
+        <p className="mb-4">
+          These colors will represent you on the platform, and will effect the
+          sites visual appearance when interacting with pages relating to you
+          (ie. your profile, settings, etc). You can change these colors at
+          anytime in your settings.
+        </p>
+        <p>
+          Clicking the colored circle next to the hex code will bring up a color
+          picker.
+        </p>
+      </div>
       <ColorPicker
         name="primaryColor"
         className="my-2"
