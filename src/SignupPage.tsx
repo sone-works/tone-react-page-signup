@@ -1,29 +1,27 @@
 import ToneServiceApi from '@sone-dao/tone-react-api'
 import { Carousel } from '@sone-dao/tone-react-core-ui'
-import { AppDebug } from '@sone-dao/tone-react-debug'
 import { UseStyleStore } from '@sone-dao/tone-react-style-store'
 import { UseUserStore } from '@sone-dao/tone-react-user-store'
 import Head from 'next/head'
 import { useState } from 'react'
 import CodeForm from './components/CodeForm'
 import EmailForm from './components/EmailForm'
+import SuccessBox from './components/SuccessBox'
 import UserForm from './components/UserForm'
 
 type SignupPageProps = {
   useStyleStore: UseStyleStore
   useUserStore: UseUserStore
-  appDebug: AppDebug
 }
 
 export default function SignupPage({
   useStyleStore,
   useUserStore,
-  appDebug,
 }: SignupPageProps) {
   const [signupProgress, setSignupProgress] = useState<number>(0)
   const [userEmail, setUserEmail] = useState<string>('')
 
-  const api = new ToneServiceApi({ api: appDebug.api, debug: appDebug.isDebug })
+  const api = new ToneServiceApi()
 
   return (
     <>
@@ -49,8 +47,10 @@ export default function SignupPage({
             <UserForm
               useStyleStore={useStyleStore}
               useUserStore={useUserStore}
+              setSignupProgress={setSignupProgress}
               api={api}
             />
+            <SuccessBox />
           </Carousel>
         </div>
       </main>

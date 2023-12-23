@@ -59,10 +59,15 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
         </h2>
         {location && (
           <h4 className="text-global-flipped font-header text-base">
-            <i className="fa-solid fa-globe mr-2" />
+            <i className="fa-light fa-map-pin mr-2" />
             {location}
           </h4>
         )}
+        <p className="text-xs rounded-xl">
+          <i className="fa-solid fa-globe mr-1" />
+          tone.audio/users/
+          <span className="font-header">{uniqueName || user.userId}</span>
+        </p>
       </div>
       <div className="py-2 w-full">
         <Input
@@ -71,6 +76,7 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
           className="my-2"
           value={display}
           setValue={setDisplay}
+          placeholder={user.userId}
         />
         <Input
           name="uniqueName"
@@ -86,10 +92,6 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
             chosen, we'll go with this long, ugly, random unique ID we generated
             for you, gross...
           </p>
-          <p className="my-2">
-            https://tone.audio/users/
-            <span className="font-header">{uniqueName || user.userId}</span>
-          </p>
         </div>
         <Input
           name="location"
@@ -97,6 +99,7 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
           className="my-2"
           value={location}
           setValue={setLocation}
+          placeholder="Planet Earth, Milky Way"
         />
         <Textarea
           name="description"
@@ -104,6 +107,7 @@ export default function ProfileForm({ useUserStore, api }: ProfileFormProps) {
           className="my-2"
           value={description}
           setValue={setDescription}
+          placeholder="Cooler than a polar bear's toe nail."
         />
       </div>
     </div>

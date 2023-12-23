@@ -45,6 +45,9 @@ export default function EmailForm({
           </div>
         )}
         <Button className="pt-2" isDisabled={!isValidEmail}>
+          {isLoading && (
+            <i className="fa-fw fa-regular fa-compact-disc mr-1 fa-spin-pulse" />
+          )}
           Send Code
         </Button>
       </Form>
@@ -56,13 +59,11 @@ export default function EmailForm({
 
     api.user
       .createUser({ email })
-      .then((data) => {
-        console.log({ data })
+      .then(() => {
         setUserEmail(email)
         setSignupProgress(1)
       })
       .catch((error) => {
-        console.log({ error })
         error.message == 'DATABASE_ERROR' &&
           setErrorMessage('E-mail address is already in use.')
 

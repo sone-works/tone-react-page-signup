@@ -42,6 +42,7 @@ export default function ToneForm({
           anytime in your settings.
         </p>
         <p>
+          <i className="fa-fw fa-solid fa-circle-info mr-1" />
           Clicking the colored circle next to the hex code will bring up a color
           picker.
         </p>
@@ -60,13 +61,13 @@ export default function ToneForm({
       />
       {!validContrast && (
         <div className="flex items-center my-2 p-1 bg-global text-global text-sm font-header">
-          <i className="fa-fw fa-regular fa-square-exclamation mr-2 text-xl" />
+          <i className="fa-fw fa-solid fa-exclamation mr-2 text-2xl" />
           The colors you've picked fall outside of what's considered an
           accessible contrast. Please choose another combination.
         </div>
       )}
       <div className="flex items-center justify-end text-sm">
-        Need help?
+        Need help picking colors?
         <button
           type="button"
           className="outline-none bg-global text-global text-sm rounded-xl ml-2 p-1"

@@ -11,12 +11,14 @@ import ToneForm from './ToneForm'
 type UserFormProps = {
   useStyleStore: UseStyleStore
   useUserStore: UseUserStore
+  setSignupProgress: Function
   api: ToneServiceApi
 }
 
 export default function UserForm({
   useStyleStore,
   useUserStore,
+  setSignupProgress,
   api,
 }: UserFormProps) {
   const [validContrast, setValidContrast] = useState<boolean>(false)
@@ -73,7 +75,7 @@ export default function UserForm({
           socials,
         })
 
-        router.push('/')
+        setSignupProgress(3)
       })
       .catch((error) => console.log({ error }))
   }

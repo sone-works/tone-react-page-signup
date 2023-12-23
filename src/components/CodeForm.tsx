@@ -16,7 +16,9 @@ export default function CodeForm({
   useUserStore,
   api,
 }: CodeFormProps) {
-  const [loading, setLoading] = useState<boolean>(false)
+  const [isLoading, setLoading] = useState<boolean>(false)
+  const [isResending, setResending] = useState<boolean>(false)
+  const [code, setCode] = useState<string>('')
 
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full">
@@ -25,13 +27,28 @@ export default function CodeForm({
         Enter the code sent to you just now to verify your e-mail address. We'll
         wait...
       </p>
-      <p className="font-content my-2 text-global-flipped font-content text-base">
-        Resend code stuff here.
-      </p>
       <Form className="py-2" onSubmit={(e) => verifyCode(e)}>
-        <Input label="code" name="code" />
-        <Button className="mt-4">Sign Up</Button>
+        <Input label="code" name="code" value={code} setValue={setCode} />
+        <Button className="mt-2" isDisabled={code.length !== 6}>
+          {isLoading && <i className="fa-fw fa-regular fa-compact-disc mr-1" />}
+          Sign Up
+        </Button>
       </Form>
+      <div className="flex items-center justify-end text-sm">
+        Never received an e-mail?
+        <button
+          type="button"
+          className="outline-none bg-global text-global text-sm rounded-xl ml-2 p-1"
+          onClick={() => resendEmail()}
+        >
+          <div className="p-2 border-2 border-global rounded-xl">
+            {isResending && (
+              <i className="fa-fw fa-solid fa-envelope mr-1 fa-spin-pulse" />
+            )}
+            Resend Verification Email
+          </div>
+        </button>
+      </div>
     </div>
   )
 
@@ -51,8 +68,23 @@ export default function CodeForm({
       })
       .catch((error) => {
         setLoading(false)
+      })
+  }
 
+  async function resendEmail() {
+    setResending(true)
+
+    return api.user
+      .reverifyEmail(userEmail)
+      .then((response) => {
+        console.log({ response })
+
+        setResending(false)
+      })
+      .catch((error) => {
         console.log({ error })
+
+        setResending(false)
       })
   }
 }

@@ -13,21 +13,27 @@ export default function SocialsForm({}: SocialsFormProps) {
           className="my-2"
           name="socialsTwitter"
           startContent={
-            <i className="fa-fw fa-brands fa-x-twitter text-2xl text-global-flipped" />
+            <div className="flex items-center">
+              <i className="fa-fw fa-brands fa-x-twitter text-2xl text-global-flipped" />
+              <i className="fa-fw fa-duotone fa-at text-xl text-global-flipped" />
+            </div>
           }
         />
         <Input
           className="my-2"
           name="socialsInstagram"
           startContent={
-            <i className="fa-fw fa-brands fa-instagram text-2xl text-global-flipped" />
+            <div className="flex items-center">
+              <i className="fa-fw fa-brands fa-instagram text-2xl text-global-flipped" />
+              <i className="fa-fw fa-duotone fa-at text-xl text-global-flipped" />
+            </div>
           }
         />
         <Input
           className="my-2"
           name="socialsDiscord"
           startContent={
-            <i className="fa-fw fa-brands fa-discord text-2xl text-global-flipped" />
+            <i className="fa-fw fa-brands fa-discord text-2xl text-global-flipped mr-1" />
           }
         />
       </div>
