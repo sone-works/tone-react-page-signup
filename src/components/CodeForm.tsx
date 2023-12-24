@@ -30,7 +30,9 @@ export default function CodeForm({
       <Form className="py-2" onSubmit={(e) => verifyCode(e)}>
         <Input label="code" name="code" value={code} setValue={setCode} />
         <Button className="mt-2" isDisabled={code.length !== 6}>
-          {isLoading && <i className="fa-fw fa-regular fa-compact-disc mr-1" />}
+          {isLoading && (
+            <i className="fa-fw fa-regular fa-compact-disc fa-spin-pulse mr-1" />
+          )}
           Sign Up
         </Button>
       </Form>
