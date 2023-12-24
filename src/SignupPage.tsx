@@ -23,36 +23,42 @@ export default function SignupPage({
 
   const api = new ToneServiceApi()
 
+  const isUserForm = signupProgress == 2
+
   return (
     <>
       <Head>
         <title>Tone - Signup</title>
       </Head>
-      <main className="flex items-center justify-center bg-global grow h-full p-4">
-        <div className="flex flex-col items-center w-full max-w-xl">
-          <span className="font-release text-global text-5xl m-4">tone</span>
-          <Carousel current={signupProgress}>
-            <EmailForm
-              userEmail={userEmail}
-              setUserEmail={setUserEmail}
-              setSignupProgress={setSignupProgress}
-              api={api}
-            />
-            <CodeForm
-              userEmail={userEmail}
-              setSignupProgress={setSignupProgress}
-              useUserStore={useUserStore}
-              api={api}
-            />
-            <UserForm
-              useStyleStore={useStyleStore}
-              useUserStore={useUserStore}
-              setSignupProgress={setSignupProgress}
-              api={api}
-            />
-            <SuccessBox />
-          </Carousel>
-        </div>
+      <main
+        className="flex flex-col items-center bg-global grow h-full p-4"
+        style={{
+          justifyContent: isUserForm ? 'start' : 'center',
+          overflowY: isUserForm ? 'scroll' : 'auto',
+        }}
+      >
+        <span className="font-release text-global text-5xl m-4">tone</span>
+        <Carousel current={signupProgress}>
+          <EmailForm
+            userEmail={userEmail}
+            setUserEmail={setUserEmail}
+            setSignupProgress={setSignupProgress}
+            api={api}
+          />
+          <CodeForm
+            userEmail={userEmail}
+            setSignupProgress={setSignupProgress}
+            useUserStore={useUserStore}
+            api={api}
+          />
+          <UserForm
+            useStyleStore={useStyleStore}
+            useUserStore={useUserStore}
+            setSignupProgress={setSignupProgress}
+            api={api}
+          />
+          <SuccessBox />
+        </Carousel>
       </main>
     </>
   )

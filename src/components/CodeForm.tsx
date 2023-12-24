@@ -18,8 +18,8 @@ export default function CodeForm({
 }: CodeFormProps) {
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isResending, setResending] = useState<boolean>(false)
-  const [code, setCode] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState<string>('')
+  const [code, setCode] = useState<string>('')
 
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full">

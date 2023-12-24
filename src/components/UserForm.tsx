@@ -2,7 +2,6 @@ import ToneServiceApi from '@sone-dao/tone-react-api'
 import { Button, Form } from '@sone-dao/tone-react-core-ui'
 import { UseStyleStore } from '@sone-dao/tone-react-style-store'
 import { UseUserStore, UserSocials } from '@sone-dao/tone-react-user-store'
-import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import ProfileForm from './ProfileForm'
 import SocialsForm from './SocialsForm'
@@ -23,10 +22,11 @@ export default function UserForm({
 }: UserFormProps) {
   const [validContrast, setValidContrast] = useState<boolean>(false)
 
-  const router = useRouter()
-
   return (
-    <Form className="w-full h-full" onSubmit={(e) => registerUser(e)}>
+    <Form
+      className="w-full h-full max-h-full"
+      onSubmit={(e) => registerUser(e)}
+    >
       <ProfileForm useUserStore={useUserStore} api={api} />
       <ToneForm
         useStyleStore={useStyleStore}
