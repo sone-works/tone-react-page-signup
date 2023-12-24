@@ -86,6 +86,7 @@ export default function CodeForm({
       .then(() => setResending(false))
       .catch(() => {
         setErrorMessage('Invalid verification code.')
+
         return setResending(false)
       })
   }
