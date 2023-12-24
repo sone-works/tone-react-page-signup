@@ -39,8 +39,8 @@ export default function EmailForm({
           setValue={setVerifyEmail}
         />
         {errorMessage && (
-          <div className="flex items-center bg-global text-global my-2 p-2 text-small font-header">
-            <i className="fa-fw fa-regular fa-square-exclamation mr-2 text-xl" />
+          <div className="flex items-center bg-global text-global my-2 p-1 text-small font-header">
+            <i className="fa-fw fa-solid fa-exclamation mr-2 text-xl" />
             {errorMessage}
           </div>
         )}
@@ -57,17 +57,16 @@ export default function EmailForm({
   async function sendAuthEmail() {
     setLoading(true)
 
-    api.user
+    return api.user
       .createUser({ email })
-      .then(() => {
+      .then((response) => {
         setUserEmail(email)
-        setSignupProgress(1)
+        return setSignupProgress(1)
       })
       .catch((error) => {
-        error.message == 'DATABASE_ERROR' &&
-          setErrorMessage('E-mail address is already in use.')
+        setErrorMessage('E-mail address is already in use.')
 
-        setLoading(false)
+        return setLoading(false)
       })
   }
 }

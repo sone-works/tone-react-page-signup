@@ -19,6 +19,7 @@ export default function CodeForm({
   const [isLoading, setLoading] = useState<boolean>(false)
   const [isResending, setResending] = useState<boolean>(false)
   const [code, setCode] = useState<string>('')
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   return (
     <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full">
@@ -29,6 +30,12 @@ export default function CodeForm({
       </p>
       <Form className="py-2" onSubmit={(e) => verifyCode(e)}>
         <Input label="code" name="code" value={code} setValue={setCode} />
+        {errorMessage && (
+          <div className="flex items-center bg-global text-global my-2 p-1 text-small font-header">
+            <i className="fa-fw fa-solid fa-exclamation mr-2 text-xl" />
+            {errorMessage}
+          </div>
+        )}
         <Button className="mt-2" isDisabled={code.length !== 6}>
           {isLoading && (
             <i className="fa-fw fa-regular fa-compact-disc fa-spin-pulse mr-1" />
@@ -47,7 +54,7 @@ export default function CodeForm({
             {isResending && (
               <i className="fa-fw fa-solid fa-envelope mr-1 fa-spin-pulse" />
             )}
-            Resend Verification Email
+            Resend
           </div>
         </button>
       </div>
@@ -66,11 +73,9 @@ export default function CodeForm({
 
         useUserStore.setState({ isLoggedIn: true, userId: user.userId })
 
-        setSignupProgress(2)
+        return setSignupProgress(2)
       })
-      .catch((error) => {
-        setLoading(false)
-      })
+      .catch((error) => setLoading(false))
   }
 
   async function resendEmail() {
@@ -78,15 +83,10 @@ export default function CodeForm({
 
     return api.user
       .reverifyEmail(userEmail)
-      .then((response) => {
-        console.log({ response })
-
-        setResending(false)
-      })
-      .catch((error) => {
-        console.log({ error })
-
-        setResending(false)
+      .then(() => setResending(false))
+      .catch(() => {
+        setErrorMessage('Invalid verification code.')
+        return setResending(false)
       })
   }
 }
