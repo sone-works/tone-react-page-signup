@@ -26,8 +26,8 @@ export default function EmailForm({
 
   return (
     <div className="flex flex-col items-center justify-center h-full w-full p-4">
-      <span className="font-release text-5xl m-4">tone</span>
-      <div className="flex flex-col p-4 rounded-xl border-4 border-global w-full">
+      <span className="font-release text-global text-5xl m-4">tone</span>
+      <div className="flex flex-col p-4 rounded-xl border-4 border-global text-global w-full">
         <h2 className="font-header text-3xl">Sign Up</h2>
         <p className="font-content my-2 font-normal text-base">
           Enter your email below to be a sent a code to verify the address.
