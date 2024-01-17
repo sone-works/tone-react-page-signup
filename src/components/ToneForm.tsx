@@ -1,28 +1,28 @@
 import { ColorPicker } from '@sone-dao/tone-react-core-ui'
-import { UseStyleStore } from '@sone-dao/tone-react-style-store'
+import ToneCSSUtils from '@sone-dao/tone-react-css-utils'
 import { getRandomAAColor, isAAContrast, randomColor } from 'accessible-colors'
 import { useEffect, useState } from 'react'
-import ToneCSSUtils from '../utils/css'
 
 type ToneFormProps = {
-  useStyleStore: UseStyleStore
   validContrast: boolean
   setValidContrast: Function
 }
 
 export default function ToneForm({
-  useStyleStore,
   validContrast,
   setValidContrast,
 }: ToneFormProps) {
-  const styles = useStyleStore()
+  const colors = ToneCSSUtils.getColors('global')
 
-  const [colorPrimary, setColorPrimary] = useState<string>(styles.global[0])
-  const [colorSecondary, setColorSecondary] = useState<string>(styles.global[1])
+  const [colorPrimary, setColorPrimary] = useState<string>(colors.darker || '')
+  const [colorSecondary, setColorSecondary] = useState<string>(
+    colors.lighter || ''
+  )
 
   useEffect(() => {
     if (isAAContrast(colorPrimary, colorSecondary)) {
       setValidContrast(true)
+
       ToneCSSUtils.setColors('global', colorPrimary, colorSecondary)
     } else {
       setValidContrast(false)
@@ -30,23 +30,18 @@ export default function ToneForm({
   }, [colorPrimary, colorSecondary])
 
   return (
-    <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full my-4">
-      <h4 className="font-header text-global-flipped text-2xl mb-2">
-        Your Tone
-      </h4>
-      <div className="font-content text-sm">
-        <p className="mb-4">
-          These colors will represent you on the platform, and will effect the
-          sites visual appearance when interacting with pages relating to you
-          (ie. your profile, settings, etc). You can change these colors at
-          anytime in your settings.
-        </p>
-        <p>
-          <i className="fa-fw fa-solid fa-circle-info mr-1" />
-          Clicking the colored circle next to the hex code will bring up a color
-          picker.
-        </p>
-      </div>
+    <div className="flex flex-col p-4 rounded-xl border-4 border-global my-4 w-full">
+      <p className="text-global text-sm font-content">
+        These colors will represent you on the platform, and will effect the
+        sites visual appearance when interacting with pages relating to you (ie.
+        your profile, settings, etc). You can change these colors at anytime in
+        your settings.
+      </p>
+      <p className="text-global text-sm font-content my-2">
+        <i className="fa-fw fa-solid fa-circle-info mr-1" />
+        Clicking the colored circle next to the hex code will bring up a color
+        picker.
+      </p>
       <ColorPicker
         name="primaryColor"
         className="my-2"

@@ -1,6 +1,4 @@
 import ToneServiceApi from '@sone-dao/tone-react-api'
-import { Carousel } from '@sone-dao/tone-react-core-ui'
-import { UseStyleStore } from '@sone-dao/tone-react-style-store'
 import { UseUserStore } from '@sone-dao/tone-react-user-store'
 import Head from 'next/head'
 import { useState } from 'react'
@@ -10,56 +8,63 @@ import SuccessBox from './components/SuccessBox'
 import UserForm from './components/UserForm'
 
 type SignupPageProps = {
-  useStyleStore: UseStyleStore
   useUserStore: UseUserStore
 }
 
-export default function SignupPage({
-  useStyleStore,
-  useUserStore,
-}: SignupPageProps) {
-  const [signupProgress, setSignupProgress] = useState<number>(0)
+export default function SignupPage({ useUserStore }: SignupPageProps) {
+  const [experience, setExperience] = useState<string>('email')
   const [userEmail, setUserEmail] = useState<string>('')
 
   const api = new ToneServiceApi()
-
-  const isUserForm = signupProgress == 2
 
   return (
     <>
       <Head>
         <title>Tone - Signup</title>
       </Head>
-      <main
-        className="flex flex-col items-center bg-global grow h-full p-4"
-        style={{
-          justifyContent: isUserForm ? 'start' : 'center',
-          overflowY: isUserForm ? 'scroll' : 'auto',
-        }}
-      >
-        <span className="font-release text-global text-5xl m-4">tone</span>
-        <Carousel current={signupProgress}>
+      <ExperienceRouter />
+    </>
+  )
+
+  function ExperienceRouter() {
+    switch (experience) {
+      case 'email':
+        return (
           <EmailForm
             userEmail={userEmail}
             setUserEmail={setUserEmail}
-            setSignupProgress={setSignupProgress}
+            setExperience={setExperience}
             api={api}
           />
+        )
+      case 'code':
+        return (
           <CodeForm
             userEmail={userEmail}
-            setSignupProgress={setSignupProgress}
+            setExperience={setExperience}
             useUserStore={useUserStore}
             api={api}
           />
+        )
+      case 'user':
+        return (
           <UserForm
-            useStyleStore={useStyleStore}
             useUserStore={useUserStore}
-            setSignupProgress={setSignupProgress}
+            setExperience={setExperience}
             api={api}
           />
-          <SuccessBox />
-        </Carousel>
-      </main>
-    </>
-  )
+        )
+      case 'success':
+        return <SuccessBox />
+      default:
+        return (
+          <EmailForm
+            userEmail={userEmail}
+            setUserEmail={setUserEmail}
+            setExperience={setExperience}
+            api={api}
+          />
+        )
+    }
+  }
 }

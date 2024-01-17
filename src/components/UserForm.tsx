@@ -1,6 +1,5 @@
 import ToneServiceApi from '@sone-dao/tone-react-api'
 import { Button, Form } from '@sone-dao/tone-react-core-ui'
-import { UseStyleStore } from '@sone-dao/tone-react-style-store'
 import { UseUserStore, UserSocials } from '@sone-dao/tone-react-user-store'
 import { useState } from 'react'
 import ProfileForm from './ProfileForm'
@@ -8,36 +7,33 @@ import SocialsForm from './SocialsForm'
 import ToneForm from './ToneForm'
 
 type UserFormProps = {
-  useStyleStore: UseStyleStore
   useUserStore: UseUserStore
-  setSignupProgress: Function
+  setExperience: Function
   api: ToneServiceApi
 }
 
 export default function UserForm({
-  useStyleStore,
   useUserStore,
-  setSignupProgress,
+  setExperience,
   api,
 }: UserFormProps) {
   const [validContrast, setValidContrast] = useState<boolean>(false)
 
   return (
-    <Form
-      className="w-full h-full max-h-full"
-      onSubmit={(e) => registerUser(e)}
-    >
-      <ProfileForm useUserStore={useUserStore} api={api} />
-      <ToneForm
-        useStyleStore={useStyleStore}
-        validContrast={validContrast}
-        setValidContrast={setValidContrast}
-      />
-      <SocialsForm />
-      <div className="p-4 rounded-xl bg-global-flipped text-global-flipped w-full my-4">
-        <Button>Finish</Button>
+    <div className="p-4 bg-global">
+      <div className="flex justify-center font-release text-5xl mb-16 w-full">
+        tone
       </div>
-    </Form>
+      <Form onSubmit={(e) => registerUser(e)}>
+        <ProfileForm useUserStore={useUserStore} api={api} />
+        <ToneForm
+          validContrast={validContrast}
+          setValidContrast={setValidContrast}
+        />
+        <SocialsForm />
+        <Button>Finish</Button>
+      </Form>
+    </div>
   )
 
   async function registerUser(e: any) {
@@ -75,7 +71,7 @@ export default function UserForm({
           socials,
         })
 
-        setSignupProgress(3)
+        setExperience('success')
       })
       .catch((error) => console.log({ error }))
   }
