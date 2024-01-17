@@ -12,7 +12,7 @@ type SignupPageProps = {
 }
 
 export default function SignupPage({ useUserStore }: SignupPageProps) {
-  const [experience, setExperience] = useState<string>('user')
+  const [experience, setExperience] = useState<string>('email')
   const [userEmail, setUserEmail] = useState<string>('')
 
   const api = new ToneServiceApi()
