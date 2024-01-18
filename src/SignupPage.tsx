@@ -17,54 +17,70 @@ export default function SignupPage({ useUserStore }: SignupPageProps) {
 
   const api = new ToneServiceApi()
 
-  return (
-    <>
-      <Head>
-        <title>Tone - Signup</title>
-      </Head>
-      <ExperienceRouter />
-    </>
-  )
-
-  function ExperienceRouter() {
-    switch (experience) {
-      case 'email':
-        return (
+  switch (experience) {
+    case 'email':
+      return (
+        <>
+          <Head>
+            <title>Tone - Signup</title>
+          </Head>
           <EmailForm
             userEmail={userEmail}
             setUserEmail={setUserEmail}
             setExperience={setExperience}
             api={api}
           />
-        )
-      case 'code':
-        return (
+        </>
+      )
+    case 'code':
+      return (
+        <>
+          <Head>
+            <title>Tone - Signup - {userEmail}</title>
+          </Head>
           <CodeForm
             userEmail={userEmail}
             setExperience={setExperience}
             useUserStore={useUserStore}
             api={api}
           />
-        )
-      case 'user':
-        return (
+        </>
+      )
+    case 'user':
+      return (
+        <>
+          <Head>
+            <title>Tone - Signup - {userEmail}</title>
+          </Head>
           <UserForm
             useUserStore={useUserStore}
             setExperience={setExperience}
             api={api}
           />
-        )
-      case 'success':
-        return <SuccessBox />
-      default:
-        return (
+        </>
+      )
+    case 'success':
+      return (
+        <>
+          <Head>
+            <title>Tone - Signup - Success</title>
+          </Head>
+          <SuccessBox />
+        </>
+      )
+    default:
+      return (
+        <>
+          <Head>
+            <title>Tone - Signup</title>
+          </Head>
           <EmailForm
             userEmail={userEmail}
             setUserEmail={setUserEmail}
             setExperience={setExperience}
             api={api}
           />
-        )
-    }
+        </>
+      )
   }
 }

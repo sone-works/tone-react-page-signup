@@ -20,7 +20,7 @@
     "@sone-dao/sone-react-placeholder": "2.0.2",
     "@sone-dao/sone-react-utils": "1.0.1",
     "@sone-dao/tone-react-api": "^2.8.0",
-    "@sone-dao/tone-react-core-ui": "2.14.0",
+    "@sone-dao/tone-react-core-ui": "^2.16.1",
     "@sone-dao/tone-react-css-utils": "0.2.1",
     "@sone-dao/tone-react-debug": "0.1.0",
     "@sone-dao/tone-react-style-store": "0.1.0",
