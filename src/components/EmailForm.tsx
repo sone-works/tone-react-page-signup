@@ -46,7 +46,7 @@ export default function EmailForm({
               {errorMessage}
             </div>
           )}
-          <Button dark className="pt-2" isDisabled={!isValidEmail}>
+          <Button className="pt-2" isDisabled={!isValidEmail}>
             {isLoading && (
               <i className="fa-fw fa-regular fa-compact-disc mr-1 fa-spin-pulse" />
             )}

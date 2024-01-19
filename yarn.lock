@@ -2111,10 +2111,10 @@
     axios "^1.4.0"
     cookies-next "^4.1.0"
 
-"@sone-dao/tone-react-core-ui@2.x":
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.17.0.tgz#5d5ab3e24ef8f7d005c09e0f228ce20e3eb2faf8"
-  integrity sha512-XboqDgEaxwbFquPXho5ljMo1ehLyyw5bdSEWDVSsxcL/8mBMozwmI8JXaus0ieXcYNgch1LsWOZejmyzsc4u7w==
+"@sone-dao/tone-react-core-ui@^2.17.2":
+  version "2.17.2"
+  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-core-ui/-/tone-react-core-ui-2.17.2.tgz#10547194322c072d0d1fa614ef771bfba41d6cc1"
+  integrity sha512-nKtclrG6bA+TCqSeQqbFfmkYXJQoEcwzggsLBxzl2k8oQFj4GByHd5SYP7GAVkkLvXyNdklsHaY+MoIy93DRfw==
   dependencies:
     "@nextui-org/react" "^2.2.9"
     "@sone-dao/sone-react-utils" "1.0.1"
@@ -2132,13 +2132,6 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-debug/-/tone-react-debug-0.1.0.tgz#e03fdcca805c882392ac775cf72e3f6ca0126a26"
   integrity sha512-ICA0PAg7+LlvUo7+dAbIqnpKsoxuI7+TdPM/1kK2/LBFpF06r0KWKmkJ+VtHZrfcYLGyB3M2HQ49CCo43z412w==
-
-"@sone-dao/tone-react-style-store@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@sone-dao/tone-react-style-store/-/tone-react-style-store-0.1.0.tgz#0433fa5c175ba5f1533dc1fc49c876b88a42b6b9"
-  integrity sha512-P+QFhvQmpv691z/QQ0sd0NVG8fwFVMT3JyqB6L6rZTcFPbBa8ebV4hTLK2eWhJrL0kZNqPM0gR6TfH+o1o3+Hw==
-  dependencies:
-    zustand "^4.4.7"
 
 "@sone-dao/tone-react-user-store@0.2.0":
   version "0.2.0"
